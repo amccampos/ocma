@@ -58,6 +58,11 @@ Caso você não tenha o nodeJs instalado, pode fazê-lo a partir do endereço ht
 
 Lembre-se também que `bot1` e `bot2` são executáveis. Ou seja, é você quem deve compilar seu código C e gerar estes programas antes de iniciar o jogo. Bots de exemplo são fornecidos para você dar o pontapé inicial.
 
+A imagem abaixo ilustra um exemplo de execução do jogo. A saída é feito no terminal (linux).
+
+![Exemplo de saída do jogo](./screen.png)
+
+
 ## Comunicação
 
 O jogo é baseado em turnos e, em cada turno, os bots terão oportunidade, na sua vez, de realizar uma única ação... e colher as informações fruto da ação realizada.
