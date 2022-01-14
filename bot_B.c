@@ -1,10 +1,10 @@
 /********************************************************************
   Bot-exemplo
   
-  Bot_B: anda pra cima
+  Bot_A: anda pra esquerda
   
   Após receber as informações iniciais do jogo, a cada rodada esse
-  bot irá se movimentar para cima.
+  bot irá se movimentar para esquerda.
   Cabe a você agora aprimorar sua estratégia!!!
  ********************************************************************/
 
@@ -12,6 +12,22 @@
 #include <string.h>
 
 #define MAX_LINE 50
+
+/* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
+void readData(int h, int w) {
+  char id[MAX_LINE];
+  int v, n, x, y;
+
+  for (int i = 0; i < h; i++) {   
+    for (int j = 0; j < w; j++) {
+      scanf("%i", &v);
+    }
+  }
+  scanf(" BOTS %i", &n);           // lê a quantidade de bots
+  for (int i = 0; i < n; i++) {
+    scanf("%s %i %i", id, &x, &y); // lê o id dos bots e suas posições
+  }
+}
 
 int main() {
   char line[MAX_LINE];   // dados temporários
@@ -21,37 +37,27 @@ int main() {
   setbuf(stdout, NULL);  // assim, nada é "guardado temporariamente"
   setbuf(stderr, NULL);
 
-  // DADOS DO INÍCIO DA PARTIDA
-  int h, w, v, t, n, x, y;
-  scanf("AREA %i %i", &h, &w);       // dimensão da área de pesca: altura (h) x largura (w)
-  for (int i = 0; i < h; i++) {   
-    for (int j = 0; j < w; j++) {
-      scanf("%i", &v);               // lê os valores de cada posição da área
-    }
-  }
-  scanf(" TIME %i", &t);             // número de rodadas
-  scanf(" BOTS %i", &n);             // quantidade de bots
-  for (int i = 0; i < n; i++) {      // para cada bot
-    scanf("%s %i %i", line, &x, &y); // lê seu id e sua posição
-  }
-  scanf(" YOU %s\n", myId);          // por fim, sabe qual seu próprio id
+  // === INÍCIO DA PARTIDA ===
+  int h, w;
+  scanf("AREA %i %i", &h, &w);  // dimensão da área de pesca: altura (h) x largura (w)
+  // readData(h, w);               // lê os dados do jogo
+  scanf(" ID %s", myId);     // por fim, sabe qual seu próprio id
+  fprintf(stderr, "%s\n", myId);
 
-  // DADOS DURANTE A PARTIDA
-  char id[MAX_LINE];
-  char item[MAX_LINE];
-  
-  // fica num laço infinito, pois quem vai terminar seu programa é o jogo.
+  // === PARTIDA === 
+  // fica num laço infinito, pois quem vai terminar seu programa é o SIMULADOR.
   while (1) {
-    // antes de enviar algum comando, deve esperar "sua vez"
-    // entra, então, num laço esperando chegar a mensagem "BOT <seu_id>"
-    do {
-      fgets(line, MAX_LINE, stdin);
-      sscanf(line, " %s %s", item, id);
-    } while (strcmp(item, "BOT") || strcmp(id, myId));
+    // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
+    readData(h, w);
 
-    // como saiu do laço anterior, é "sua vez"
-    printf("UP\n"); // envia uma das ações possíveis (nesse caso, ir para cima)
-    fgets(line, MAX_LINE, stdin);   // vê qual foi o resultado da ação.
+    // INSERIR UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
+
+    // envia a ação escolhida (nesse exemplo, ir para esquerda)
+    printf("LEFT\n");
+
+    // lê qual foi o resultado da ação (e eventualmente atualiza os dados do bot).
+    scanf("%s", line);
+    // fgets(line, MAX_LINE, stdin);
   }
 
   return 0;
