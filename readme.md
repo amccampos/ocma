@@ -41,7 +41,7 @@ O programa `ocma` é um script em Javascript e deve ser chamado usando o nodeJs.
 $ node ocma bot_A bot_B
 ```
 
-Caso você não tenha o nodeJs instalado, pode fazê-lo a partir do endereço https://nodejs.org/pt-br/. O programa funciona com a versão 10 do Node ou mais recentes. Se não desejar ou não puder instalar o nodeJs, é possível acessar estes mesmos arquivos no repl.it no endereço: [SITE]. No repl.it, o botão "Play" irá executará o script.
+Caso você não tenha o nodeJs instalado, pode fazê-lo a partir do endereço https://nodejs.org/pt-br/. O programa funciona com a versão 10 do Node ou mais recentes. Se não desejar ou não puder instalar o nodeJs, é possível acessar estes mesmos arquivos no repl.it no endereço: https://replit.com/@amccampos/ocma. No repl.it, o botão "Play" irá executará o script.
 
 Lembre-se também que `bot_A` e `bot_B` (indicados no exemplo da linha de comando acima) são arquivos executáveis, já compilados. Ou seja, é você quem deve compilar seu código C e gerar o executável do seu bot antes de iniciar o jogo. Bots de exemplo são fornecidos para você dar o pontapé inicial.
 
